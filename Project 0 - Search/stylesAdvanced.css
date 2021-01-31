@@ -1,0 +1,32 @@
+#home {
+    position: absolute; 
+    right: 10px;
+}
+#label {
+    color: #d93025;
+    font-size: 30px;
+    margin: 20px 20px;
+    margin-left: 5px;
+    padding: 30px;
+    padding-top: 30px;
+}
+td {
+    margin: 20px 20px;
+    margin-left: 5px;
+    padding: 5px;
+}
+th {
+    text-align: left;
+    padding: 2px;
+}
+input {
+    width: 400px;
+    padding: 2px;
+}
+input[type="submit"] {
+    background-color: blue;
+    color: white;
+    width: 120px;
+    height: 30px;
+    border: none;
+}
