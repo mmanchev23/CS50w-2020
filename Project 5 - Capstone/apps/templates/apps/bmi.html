@@ -1,0 +1,50 @@
+{% extends "apps/layout.html" %}
+
+{% block body %}
+{% if user.is_authenticated %}
+
+<div style="margin-top: 50px;">
+  <div style="color: white; text-align: center;">
+    <h1 class="display-4">Body Mass Index</h1>
+    <p class="lead">Calculate your BMI.</p><br>
+  </div>
+  <div style="color: white; text-align: center;">
+    <label style="font-size: xx-large;" for="Height" class="col-sm-2 col-form-label">Height</label>
+    <input style="width: 400px; display: inline-block;" type="text" class="form-control" id="Height" placeholder="Type here in cm.">
+  </div>
+  <div style="color: white; text-align: center;">
+    <label style="font-size: xx-large;" for="Weight" class="col-sm-2 col-form-label">Weight</label>
+    <input style="width: 400px; display: inline-block;" type="text" class="form-control" id="Weight" placeholder="Type here in kg."><br>
+  </div><br>
+  <div style="color: white; text-align: center;">
+    <button type="submit" class="btn btn-primary" id="btn" onclick="bmi()">Calculate</button><br><br>
+    <p id="output" class="text-center"></p>
+  </div>
+</div>
+
+{% else %}
+
+<div style="display: flex;">
+  <div style="flex: 1;">
+    <p>
+
+    </p>
+  </div>
+  <div style="flex: 1; text-align: center; margin-top: 220px;">
+    <div>
+      <h1 style="font-family: Brush Script MT;">Healthy at home</h1>
+    </div>
+    <br>
+    <div style="width: 360px; display: inline-block; opacity: .7; font-size: large;" class="alert alert-danger" role="alert">
+      You are not logged into your account <br> or you do not have one.
+    </div>
+    <br>
+    <div style="flex: 1;">
+      <a style="margin-right: 25px; margin-top: 20px; background-color: blueviolet; border-color: blueviolet; width: 90px;" class="btn btn-primary" href="/login/" role="button">Log in</a>
+      <a style="margin-left: 25px; margin-top: 20px; background-color: blueviolet; border-color: blueviolet; width: 90px;" class="btn btn-primary" href="/register/" role="button">Register</a>
+    </div>
+  </div>
+</div>
+
+{% endif %}
+{% endblock %}

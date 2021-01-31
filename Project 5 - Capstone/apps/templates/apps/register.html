@@ -1,0 +1,48 @@
+{% extends "apps/layout.html" %}
+
+{% block body %}
+
+<div  style="display: flex; margin-top: 150px; text-align: center;">
+    <div style="flex: 1"></div>
+    <div style="flex: 1;">
+        <div style="text-align: center;">
+            <h2>Register</h2>
+    
+            <br>
+            
+            
+        {% if message %}
+        <div style="width: 360px; display: inline-block;" class="alert alert-danger" role="alert">
+            {{message}}
+        </div>
+        {% endif %}
+    
+        <form action="{% url 'register' %}" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <input style="width: 280px; display: inline-block;" class="form-control" autofocus type="text" name="username" placeholder="Username">
+            </div>
+            <div class="form-group">
+                <input style="width: 280px; display: inline-block;" class="form-control" type="email" name="email" placeholder="Email Address">
+            </div>
+            <div class="form-group">
+                <input style="width: 280px; display: inline-block;" class="form-control" type="password" name="password" placeholder="Password">
+            </div>
+            <div class="form-group">
+                <input style="width: 280px; display: inline-block;" class="form-control" type="password" name="confirmation" placeholder="Confirm Password">
+            </div>
+            <input style="width: 280px; display: inline-block;" class="btn btn-primary" type="submit" value="Register">
+        </form>
+    
+        <br>
+    
+        <div style="color: white;">
+            Already have an account? <a href="{% url 'login' %}">Log In here.</a>
+        </div>
+        </div>
+    </div>
+  </div>
+
+    
+
+{% endblock %}

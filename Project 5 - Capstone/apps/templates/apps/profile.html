@@ -1,0 +1,34 @@
+{% extends "apps/layout.html" %}
+
+{% block body %}
+
+    <br>
+
+<div class="profile" style="text-align: center;">
+    <div style="font-size: xx-large; text-align: center;">{{user.username}}</div>
+            <a class="btn btn-primary" href="/logout/">Log out</a>
+            <a class="btn btn-primary" href="{% url 'config' username=request.user %}"><i class="fa fa-cog"></i></a>
+
+        <div style="margin: auto; width: 50%; border: 3px solid black; padding: 10px; margin-top: 80px;" class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h1 class="card-title">Saved Workouts:</h1>
+                {% for workout in workout %}
+                {% if workout.savedInProfile is True %}
+                <div style="margin: auto; width: 75%; border: 3px solid black; padding: 10px; margin-top: 80px;" class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{workout.name}}</h5>
+                        <p class="card-text" style="text-align: left;">{{workout.content|linebreaksbr}}</p>
+                        <a class="btn btn-danger" href="/remove/{{workout.id}}">Remove from profile</a>
+                    </div>
+                </div><br>
+                {% endif %}
+                {% empty %}
+                <h1>It seems like you don't have any saved workouts</h1>
+                {% endfor %}
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

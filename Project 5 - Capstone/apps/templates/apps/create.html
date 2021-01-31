@@ -1,0 +1,26 @@
+{% extends "apps/layout.html" %}
+
+{% block body %}
+
+<div style="margin: auto; width: 50%; border: 3px solid black; padding: 10px; margin-top: 80px;" class="card" style="width: 18rem;">
+    <div class="card-body" style="text-align: center;">
+      {% if message %}
+      <div class="alert alert-success">
+        {{message}}
+      </div>
+      {% endif %}
+      <h5 class="card-title">Create Workout</h5>
+      <p class="card-text">
+        <form action="" method="POST">
+            {% csrf_token %}
+            <label>Name: </label><br>
+            <input style="width: 300px; display: inline-block;" type="text" name="name" class="form-control" placeholder="Type a name"> <br> <br>
+            <label>Description: </label> <br>
+            <input style="width: 300px; display: inline-block;" type="text" name="content" class="form-control" placeholder="Type a description"><br><br>
+            <button class="btn btn-primary" style="margin-right: 10px;">Save</button>
+            <a class="btn btn-primary"  style="margin-left: 10px;" href="/workouts/">Back</a> 
+        </form>
+      </p>
+    </div>
+</div>
+{% endblock %}

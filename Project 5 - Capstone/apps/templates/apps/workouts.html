@@ -1,0 +1,45 @@
+{% extends "apps/layout.html" %}
+
+{% block body %}
+{% if user.is_authenticated %}
+
+{% for workout in workout %}
+<div style="margin: auto; width: 50%; border: 3px solid black; padding: 10px; margin-top: 80px;" class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">{{workout.name}}</h5>
+      <p class="card-text">{{workout.content|linebreaksbr}}</p>
+      <a class="btn btn-success" href="/save/{{workout.id}}">Save in profile</a>
+      <a class="btn btn-danger" href="/delete/{{workout.id}}">Delete</a>
+    </div>
+</div><br>
+{% endfor %}
+
+<a style="margin:auto; text-align:center; display:block;" class="btn btn-primary" href="/create/">Create Workout</a>
+
+
+{% else %}
+
+<div style="display: flex;">
+  <div style="flex: 1;">
+    <p>
+
+    </p>
+  </div>
+  <div style="flex: 1; text-align: center; margin-top: 220px;">
+    <div>
+      <h1 style="font-family: Brush Script MT;">Healthy at home</h1>
+    </div>
+    <br>
+    <div style="width: 360px; display: inline-block; opacity: .7; font-size: large;" class="alert alert-danger" role="alert">
+      You are not logged into your account <br> or you do not have one.
+    </div>
+    <br>
+    <div style="flex: 1;">
+      <a style="margin-right: 25px; margin-top: 20px; background-color: blueviolet; border-color: blueviolet; width: 90px;" class="btn btn-primary" href="/login/" role="button">Log in</a>
+      <a style="margin-left: 25px; margin-top: 20px; background-color: blueviolet; border-color: blueviolet; width: 90px;" class="btn btn-primary" href="/register/" role="button">Register</a>
+    </div>
+  </div>
+</div>
+
+{% endif %}
+{% endblock %}

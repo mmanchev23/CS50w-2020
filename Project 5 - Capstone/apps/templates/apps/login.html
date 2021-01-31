@@ -1,0 +1,44 @@
+{% extends "apps/layout.html" %}
+
+{% block body %}
+
+<div  style="display: flex; margin-top: 170px; text-align: center;">
+    <div style="flex: 1"></div>
+    <div style="flex: 1;">
+        <div style="text-align: center;">
+            <h2>Login</h2>
+            
+            <br>
+    
+        {% if message %}
+        <div style="width: 360px; display: inline-block;" class="alert alert-danger" role="alert">
+            {{message}}
+        </div>
+        {% endif %}
+        
+        <form action="{% url 'login' %}" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <input style="width: 280px; display: inline-block;" autofocus class="form-control" type="text" name="username" placeholder="Username">
+            </div>
+            <div class="form-group">
+                <input style="width: 280px; display: inline-block;" class="form-control" type="password" name="password" placeholder="Password">
+            </div>
+    
+            <br>
+    
+            <input style="width: 280px;" class="btn btn-primary" type="submit" value="Login">
+        </form>
+    
+        <br>
+    
+        <div style="color: white;">
+            Don't have an account? <a href="{% url 'register' %}">Register here.</a>
+        </div>
+        </div>
+    </div>
+  </div>
+
+    
+
+{% endblock %}
