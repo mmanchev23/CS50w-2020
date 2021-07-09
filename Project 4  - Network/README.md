@@ -1,6 +1,6 @@
 # CS50w-2020
 
-## Project 2 - Commerce
+## Project 4 - Network
 
 ### Technologies:
 <ul>
